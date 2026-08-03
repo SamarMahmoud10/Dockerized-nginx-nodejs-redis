@@ -33,7 +33,10 @@ The system consists of 4 containers operating together within a fully isolated i
 │   ├── Dockerfile
 │   └── nginx.conf
 ├── web/
+│   ├── .npmrc
+│   ├── .yarnrc.yaml
 │   ├── Dockerfile
+│   ├── package-lock.json
 │   ├── package.json
 │   └── server.js
 ├── assets/
