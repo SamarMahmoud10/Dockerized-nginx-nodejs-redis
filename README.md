@@ -63,7 +63,7 @@ Open your web browser and navigate to:
 http://localhost
 ```
 
-* **Load Balancing Test**: Refresh the page multiple times. You will see the `Container Hostname` alternate between `web_app_1` and `web_app_2`.
+* **Load Balancing Test**: Refresh the page multiple times. You will see the `Container Hostname` alternate between `web1` and `web2`.
 * **State Management Test**: Despite the switching hostnames, the `Number of visits` counter increments perfectly and seamlessly because both app layers share the same centralized Redis Stack container.
 
 ---
