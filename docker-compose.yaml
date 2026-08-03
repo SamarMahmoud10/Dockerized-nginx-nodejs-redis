@@ -1,0 +1,45 @@
+services:
+    redis:
+      image: redis/redis-stack-server:latest
+      restart: always 
+      networks:
+      - app-network
+      volumes:
+      - redis_cache:/data 
+
+
+    web1:
+      build: ./web 
+      restart: on-failure
+      hostname: web1  
+      networks:
+       - app-network
+      depends_on:
+        - redis 
+
+    web2:
+      build: ./web
+      restart: on-failure 
+      hostname: web2 
+      networks:
+        - app-network
+      depends_on:
+        - redis 
+    nginx:
+      build: ./nginx
+      ports:
+        - '80:80' 
+      restart: always  
+
+      depends_on:
+       - web1
+       - web2
+      networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge 
+
+volumes:
+  redis_cache:
+    
