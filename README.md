@@ -40,7 +40,8 @@ The system consists of 4 containers operating together within a fully isolated i
 │   ├── package.json
 │   └── server.js
 ├── assets/
-│   └── screenshot.png
+│   ├── screenshot1.png
+│   └── screenshot2.png
 └── docker-compose.yml
 ```
 
