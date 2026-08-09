@@ -4,8 +4,12 @@ const app = express();
 const redis = require('redis');
 const redisClient = redis.createClient({
   host: process.env.REDISHOST || 'redis',
-  port: process.env.REDISPORT || 6379,
-  password: process.env.REDISPASSWORD
+  port: Number(process.env.REDISPORT || 6379),
+  auth_pass: process.env.REDISPASSWORD
+});
+
+redisClient.on('error', (err) => {
+  console.error('Redis connection error:', err);
 });
 
 app.get('/', function(req, res) {
