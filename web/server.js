@@ -59,11 +59,12 @@ app.get('/', function(req, res) {
     });
 });
 
+const PORT = process.env.PORT || 5000;
+
 if (require.main === module) {
-  app.listen(5000, function() {
-    console.log('Web application is listening on port 5000');
+  app.listen(PORT, '0.0.0.0', function() {
+    console.log(`Web application is listening on port ${PORT}`);
   });
 }
 
 module.exports = app;
-
