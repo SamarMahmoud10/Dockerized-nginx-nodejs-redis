@@ -6,7 +6,7 @@ COPY package.json package-lock.json ./
 COPY .npmrc ./
 COPY .yarnrc.yml ./
 
-RUN npm ci
+RUN npm install
 
 COPY server.js ./
 

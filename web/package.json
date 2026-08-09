@@ -4,12 +4,16 @@
   "description": "Running Node.js and Express.js on Docker",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.2",
-    "redis": "3.1.2"
+    "redis": "3.1.2",
+    "jest" : "^29.7.0",
+    "supertest": "^7.0.0"
   },
   "author": "",
   "license": "MIT"
+  
 }
