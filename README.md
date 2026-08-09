@@ -2,7 +2,7 @@
 
 A professional DevOps production-ready project showcasing containerization, infrastructure isolation, and **Load Balancing** using **Docker** and **Docker Compose**, fully automated with an advanced **CI/CD Pipeline**.
 
-## 📊 CI/CD Automation Status
+##  CI/CD Automation Status
 
 <p align="center">
   <img src="./assets/workflow-success.png" alt="GitHub Actions Workflow Success Pipeline" width="90%">
