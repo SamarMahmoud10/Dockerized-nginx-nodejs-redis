@@ -1,6 +1,12 @@
 # 🐳 Microservices Load Balancer (Nginx + Node.js + Redis Stack)
 
-A professional DevOps production-ready project showcasing containerization, infrastructure isolation, and **Load Balancing** using **Docker** and **Docker Compose**.
+A professional DevOps production-ready project showcasing containerization, infrastructure isolation, and **Load Balancing** using **Docker** and **Docker Compose**, fully automated with an advanced **CI/CD Pipeline**.
+
+## 📊 CI/CD Automation Status
+
+<p align="center">
+  <img src="./assets/workflow-success.png" alt="GitHub Actions Workflow Success Pipeline" width="90%">
+</p>
 
 ##  Live Infrastructure Demo
 
@@ -18,6 +24,25 @@ The system consists of 4 containers operating together within a fully isolated i
 
 ---
 
+##  Advanced CI/CD Pipeline (GitHub Actions)
+
+The repository implements a robust automated **Continuous Integration (CI)** workflow configured via `.github/workflows/` to ensure code stability and security before deployment.
+
+### Pipeline Stages & Implemented DevOps Practices:
+
+1. **Automated Integration Testing (`run-JavaScript-tests`)**:
+   - Executes automatically on every `push` and `pull_request` targeting the `main` branch.
+   - Leverages **Jest** and **Supertest** to validate endpoints responsiveness.
+   - Implements **Redis Mocking**, isolating the application layers during testing routines without dependencies on live databases.
+   - Utilizes GitHub Actions **Dependency Caching (`cache: npm`)** to minimize build overhead and speed up execution.
+
+2. **Multi-Container Security Scan (`build-and-scan-docker`)**:
+   - Tied sequentially using the `needs` parameter to prevent unsecured code builds.
+   - Validates the structural syntax of the `docker-compose.yml` configurations prior to assembly.
+   - Integrates **Trivy Vulnerability Scanner (by Aqua Security)** to inspect the compiled Docker layers for CVEs and vulnerabilities (`CRITICAL, HIGH`).
+
+---
+
 ##  Applied DevOps Best Practices
 
 * **Port Isolation (No Publicly Exposed Backend Ports)**: The Node.js applications and the Redis database do not map any ports to the host machine. They communicate securely only within the internal virtual network.
@@ -29,6 +54,9 @@ The system consists of 4 containers operating together within a fully isolated i
 ##  Project Structure
 
 ```text
+├── .github/
+│   └── workflows/
+│       └── CI-CD.yaml          # Advanced GitHub Actions Pipeline
 ├── nginx/
 │   ├── Dockerfile
 │   └── nginx.conf
@@ -38,10 +66,12 @@ The system consists of 4 containers operating together within a fully isolated i
 │   ├── Dockerfile
 │   ├── package-lock.json
 │   ├── package.json
+│   ├── app.test.js
 │   └── server.js
 ├── assets/
 │   ├── screenshot1.png
-│   └── screenshot2.png
+│   ├── screenshot2.png
+│   └── workflow-success.png    # GitHub Actions Status Screen
 └── docker-compose.yml
 ```
 
