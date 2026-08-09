@@ -3,8 +3,9 @@ const express = require('express');
 const app = express();
 const redis = require('redis');
 const redisClient = redis.createClient({
-  host: 'redis',
-  port: 6379
+  host: process.env.REDISHOST || 'redis',
+  port: process.env.REDISPORT || 6379,
+  password: process.env.REDISPASSWORD
 });
 
 app.get('/', function(req, res) {
