@@ -53,6 +53,3 @@ jobs:
           image-ref: "node-web-app:test"
           format: "table"
           severity: "CRITICAL,HIGH"
-            image-ref: 'node-web-app:test'
-            format: 'table' 
-            severity: 'CRITICAL,HIGH'
